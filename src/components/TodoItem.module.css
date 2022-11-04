@@ -1,0 +1,63 @@
+.todoItem {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.icon {
+  margin: 20px;
+  cursor: pointer;
+}
+
+.taskCheckbox {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.checkbox {
+  display: none;
+}
+
+.customCheckbox {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 15px;
+  width: 15px;
+  margin: 5px 15px;
+  border-radius: 50%;
+  padding: 2px;
+  border: 1px solid hsl(236, 33%, 92%);
+}
+
+.checkboxIcon {
+  opacity: 0;
+  width: 10px;
+}
+
+.todoText {
+  margin: 0;
+}
+
+.checkbox:checked + .taskCheckbox .customCheckbox {
+  background-image: linear-gradient(
+    to bottom right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+}
+
+.checkbox:checked + .taskCheckbox .checkboxIcon {
+  opacity: 1;
+}
+
+.checkbox:checked + .taskCheckbox .todoText {
+  color: hsl(236, 33%, 92%);
+  text-decoration: line-through;
+}
