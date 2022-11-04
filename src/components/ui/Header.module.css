@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-image: url("./../../assets/images/bg-desktop-light.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 40vh;
+}
+
+.header h1 {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+
+.header h1,
+.header .icon {
+  margin-top: 60px;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  padding-bottom: 10px;
+}
