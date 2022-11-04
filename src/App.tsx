@@ -1,11 +1,12 @@
 import Header from "./components/ui/Header";
+import Layout from "./components/ui/Layout";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      Hello World!
-    </div>
+      <Layout>Hello World!</Layout>
+    </>
   );
 }
 

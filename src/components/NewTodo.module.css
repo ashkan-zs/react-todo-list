@@ -1,0 +1,38 @@
+.form {
+  margin-top: 30px;
+}
+
+.input {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: #fff;
+  height: 50px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.input input[type="text"] {
+  flex-grow: 1;
+  height: 90%;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 18px;
+}
+
+.input input[type="text"]::placeholder {
+  color: hsl(233, 11%, 84%);
+}
+
+.input input[type="checkbox"] {
+  border-radius: 50%;
+}
+
+.circle {
+  height: 15px;
+  width: 15px;
+  border: 1px solid hsl(236, 33%, 92%);
+  border-radius: 50%;
+  margin: 5px 15px;
+}
