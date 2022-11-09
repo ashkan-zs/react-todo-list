@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TodoContext } from "../store/TodoContext";
 
 import classes from "./TodoFooter.module.css";
@@ -11,6 +11,23 @@ const TodoFooter: React.FC<{
 }> = (props) => {
   const todoCtx = useContext(TodoContext);
 
+  const [activeFilter, setActiveFilter] = useState([true, false, false]);
+
+  const filterAllHandler = () => {
+    setActiveFilter([true, false, false]);
+    props.onFilterAll();
+  };
+
+  const filterActiveHandler = () => {
+    setActiveFilter([false, true, false]);
+    props.onFilterActive();
+  };
+
+  const filterCompleteHandler = () => {
+    setActiveFilter([false, false, true]);
+    props.onFilterCompleted();
+  };
+
   return (
     <li className={classes.todoFooter}>
       <span className={classes.todoFooter__status}>
@@ -18,15 +35,28 @@ const TodoFooter: React.FC<{
       </span>
       <ul className={classes.todoFooter__filter}>
         <li>
-          <button className={classes.active} onClick={props.onFilterAll}>
+          <button
+            className={activeFilter[0] ? classes.active : ""}
+            onClick={filterAllHandler}
+          >
             All
           </button>
         </li>
         <li>
-          <button onClick={props.onFilterActive}>Active</button>
+          <button
+            className={activeFilter[1] ? classes.active : ""}
+            onClick={filterActiveHandler}
+          >
+            Active
+          </button>
         </li>
         <li>
-          <button onClick={props.onFilterCompleted}>Completed</button>
+          <button
+            className={activeFilter[2] ? classes.active : ""}
+            onClick={filterCompleteHandler}
+          >
+            Completed
+          </button>
         </li>
       </ul>
       <button
