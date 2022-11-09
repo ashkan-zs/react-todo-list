@@ -1,16 +1,23 @@
 .todoItem {
   position: relative;
   display: flex;
+  color: hsl(235, 19%, 35%);
   width: 100%;
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-  height: 50px;
-  border-radius: 5px;
+  height: 55px;
+  border-bottom: 1px solid hsl(236, 33%, 92%);
 }
 
-.icon {
+.todoItem:hover .deleteIcon {
+  display: block;
+}
+
+.deleteIcon {
+  display: none;
   margin: 20px;
+  width: 15px;
   cursor: pointer;
 }
 

@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import classes from "./NewTodo.module.css";
+import { TodoContext } from "../store/TodoContext";
 
 const NewTodo = () => {
   const [todoText, setTodoText] = useState("");
+  const todoCtx = useContext(TodoContext);
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
 
-    console.log("New todo added!: " + todoText);
+    todoCtx.addTodo(todoText);
     setTodoText("");
   };
 

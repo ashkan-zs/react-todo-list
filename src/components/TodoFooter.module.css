@@ -1,0 +1,41 @@
+.todoFooter {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  height: 50px;
+  color: hsl(236, 9%, 61%);
+}
+
+.todoFooter button {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+
+.todoFooter button:not(.active):hover {
+  color: hsl(235, 19%, 35%);
+}
+
+.todoFooter__status,
+.todoFooter__clear {
+  font-size: 14px;
+}
+
+.todoFooter__filter {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.todoFooter__filter button {
+  font-weight: 700;
+}
+
+.todoFooter__filter .active {
+  color: hsl(220, 98%, 61%);
+}
