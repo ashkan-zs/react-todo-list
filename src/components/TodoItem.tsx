@@ -2,7 +2,7 @@ import classes from "./TodoItem.module.css";
 import deleteIcon from "./../assets/images/icon-cross.svg";
 import checkIcon from "./../assets/images/icon-check.svg";
 import { useContext } from "react";
-import { TodoContext } from "../store/TodoContext";
+import { TodoContext } from "../store/todo-context";
 
 const TodoItem: React.FC<{ text: string; id: string; isChecked: boolean }> = (
   props

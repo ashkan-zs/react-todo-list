@@ -6,14 +6,16 @@
   display: flex;
   width: 100%;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--list-background-color);
   height: 50px;
   border-radius: 5px;
   overflow: hidden;
 }
 
 .input input[type="text"] {
+  background-color: var(--list-background-color);
   flex-grow: 1;
+  color: var(--text-color);
   height: 90%;
   border: none;
   outline: none;
@@ -22,7 +24,7 @@
 }
 
 .input input[type="text"]::placeholder {
-  color: hsl(233, 11%, 84%);
+  color: var(--text-color-disable);
 }
 
 .input input[type="checkbox"] {
@@ -32,7 +34,7 @@
 .circle {
   height: 15px;
   width: 15px;
-  border: 1px solid hsl(236, 33%, 92%);
+  border: 1px solid var(--border-color);
   border-radius: 50%;
   margin: 5px 15px;
 }

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 
 import classes from "./TodoList.module.css";
-import { TodoContext } from "../store/TodoContext";
+import { TodoContext } from "../store/todo-context";
 import TodoFooter from "./TodoFooter";
 
 const TodoList = () => {

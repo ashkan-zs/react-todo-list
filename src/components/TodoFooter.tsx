@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { TodoContext } from "../store/TodoContext";
+import { TodoContext } from "../store/todo-context";
 
 import classes from "./TodoFooter.module.css";
 

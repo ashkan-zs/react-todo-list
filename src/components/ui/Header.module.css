@@ -18,6 +18,10 @@
   height: 40vh;
 }
 
+[data-theme="dark"] .header {
+  background-image: url("./../../assets/images/bg-desktop-dark.jpg");
+}
+
 .header h1 {
   text-transform: uppercase;
   color: #fff;
@@ -33,4 +37,5 @@
   width: 25px;
   height: 25px;
   padding-bottom: 10px;
+  cursor: pointer;
 }

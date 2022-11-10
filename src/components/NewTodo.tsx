@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import classes from "./NewTodo.module.css";
-import { TodoContext } from "../store/TodoContext";
+import { TodoContext } from "../store/todo-context";
 
 const NewTodo = () => {
   const [todoText, setTodoText] = useState("");

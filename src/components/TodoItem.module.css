@@ -1,13 +1,15 @@
+@import "../variables.module.css";
+
 .todoItem {
   position: relative;
   display: flex;
-  color: hsl(235, 19%, 35%);
+  color: var(--text-color);
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: var(--list-background-color);
   height: 55px;
-  border-bottom: 1px solid hsl(236, 33%, 92%);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .todoItem:hover .deleteIcon {
@@ -40,7 +42,7 @@
   margin: 5px 15px;
   border-radius: 50%;
   padding: 2px;
-  border: 1px solid hsl(236, 33%, 92%);
+  border: 1px solid var(--border-color);
 }
 
 .checkboxIcon {
@@ -55,8 +57,8 @@
 .checkbox:checked + .taskCheckbox .customCheckbox {
   background-image: linear-gradient(
     to bottom right,
-    hsl(192, 100%, 67%),
-    hsl(280, 87%, 65%)
+    var(--gradient-from-color),
+    var(--gradient-to-color)
   );
 }
 
@@ -65,6 +67,6 @@
 }
 
 .checkbox:checked + .taskCheckbox .todoText {
-  color: hsl(236, 33%, 92%);
+  color: var(--text-color-disable);
   text-decoration: line-through;
 }

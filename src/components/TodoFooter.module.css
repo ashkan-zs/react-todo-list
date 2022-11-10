@@ -1,12 +1,14 @@
+@import "../variables.module.css";
+
 .todoFooter {
   position: relative;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-around;
-  background-color: #fff;
+  background-color: var(--list-background-color);
   height: 50px;
-  color: hsl(236, 9%, 61%);
+  color: var(--text-color-light);
 }
 
 .todoFooter button {
@@ -18,7 +20,7 @@
 }
 
 .todoFooter button:not(.active):hover {
-  color: hsl(235, 19%, 35%);
+  color: var(--hover-color);
 }
 
 .todoFooter__status,
@@ -37,5 +39,5 @@
 }
 
 .todoFooter__filter .active {
-  color: hsl(220, 98%, 61%);
+  color: var(--active-color);
 }

@@ -1,9 +1,14 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../store/theme-context";
+import NewTodo from "../NewTodo";
+
 import classes from "./Header.module.css";
 import nightIcon from "./../../assets/images/icon-moon.svg";
 import dayIcon from "./../../assets/images/icon-sun.svg";
-import NewTodo from "../NewTodo";
 
 const Header = () => {
+  const themeCtx = useContext(ThemeContext);
+
   return (
     <header className={classes.header}>
       <div className={classes.container}>
@@ -11,8 +16,9 @@ const Header = () => {
           <h1>todo</h1>
           <img
             className={classes.icon}
-            src={nightIcon}
+            src={themeCtx.theme === "light" ? nightIcon : dayIcon}
             alt="change night mode icon"
+            onClick={themeCtx.toggleThemeMode}
           />
         </div>
         <NewTodo />
