@@ -3,5 +3,15 @@
   flex-direction: column;
   margin: 0 auto;
   width: 500px;
-  margin-top: -50px;
+  position: absolute;
+  top: 200px;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 415px) {
+  .layout {
+    width: 90%;
+    top: 193px;
+  }
 }

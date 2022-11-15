@@ -11,6 +11,9 @@
   height: 55px;
   border-bottom: 1px solid var(--border-color);
 }
+.todoItem:first-child {
+  border-radius: 5px 5px 0 0;
+}
 
 .todoItem:hover .deleteIcon {
   display: block;

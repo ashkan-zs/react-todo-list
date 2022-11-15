@@ -11,7 +11,6 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-- [Author](#author)
 
 ## Overview
 
@@ -50,8 +49,3 @@ Users should be able to:
 ### What I learned
 
 I use react context and Typescript language in this app and I learn a lot of things about these concepts.
-
-## Author
-
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)

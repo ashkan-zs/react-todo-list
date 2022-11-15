@@ -16,7 +16,7 @@ const TodoItem: React.FC<{ text: string; id: string; isChecked: boolean }> = (
   };
 
   return (
-    <li className={classes.todoItem}>
+    <li className={classes.todoItem} draggable>
       <input
         className={classes.checkbox}
         id={`ck-${props.id}`}

@@ -15,7 +15,7 @@
   background-image: url("./../../assets/images/bg-desktop-light.jpg");
   background-position: center;
   background-size: cover;
-  height: 40vh;
+  height: 37vh;
 }
 
 [data-theme="dark"] .header {
@@ -38,4 +38,19 @@
   height: 25px;
   padding-bottom: 10px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 415px) {
+  .container {
+    width: 90%;
+  }
+
+  .header {
+    height: 33vh;
+    background-image: url("./../../assets/images/bg-mobile-light.jpg");
+  }
+
+  [data-theme="dark"] .header {
+    background-image: url("./../../assets/images/bg-mobile-dark.jpg");
+  }
 }

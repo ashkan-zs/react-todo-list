@@ -9,6 +9,7 @@
   background-color: var(--list-background-color);
   height: 50px;
   color: var(--text-color-light);
+  border-radius: 0 0 5px 5px;
 }
 
 .todoFooter button {
@@ -40,4 +41,22 @@
 
 .todoFooter__filter .active {
   color: var(--active-color);
+}
+
+@media screen and (max-width: 415px) {
+  .todoFooter__filter {
+    position: absolute;
+    bottom: -70px;
+    background-color: var(--list-background-color);
+    height: 55px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 25px rgb(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .todoFooter__filter button {
+    font-size: 16px;
+  }
 }
