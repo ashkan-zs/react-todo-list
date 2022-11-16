@@ -9,6 +9,10 @@
   justify-content: space-between;
 }
 
+.title h1 {
+  letter-spacing: 0.1em;
+}
+
 .header {
   display: flex;
   justify-content: center;

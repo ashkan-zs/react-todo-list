@@ -12,12 +12,12 @@ function App() {
 
   return (
     <TodoContextProvider>
-      <section className={classes.main} data-theme={theme}>
+      <main className={classes.main} data-theme={theme}>
         <Header />
         <Layout>
           <TodoList />
         </Layout>
-      </section>
+      </main>
     </TodoContextProvider>
   );
 }

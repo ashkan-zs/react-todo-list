@@ -9,6 +9,7 @@ const NewTodo = () => {
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
 
+    if (todoText.trim() === "") return;
     todoCtx.addTodo(todoText);
     setTodoText("");
   };
