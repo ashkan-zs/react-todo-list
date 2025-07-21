@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useState } from "react";
+import React, { PropsWithChildren, useEffect, useState } from "react";
 
 type themeContextType = {
   theme: string;
@@ -13,9 +13,17 @@ export const ThemeContext = React.createContext<themeContextType>({
 const ThemeContextProvider: React.FC<PropsWithChildren> = (props) => {
   const [themeMode, setThemeMode] = useState<string>("light");
 
+  useEffect(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode !== null) {
+      setThemeMode(savedMode);
+    }
+  }, []);
+
   const toggleThemeModeHandler = () => {
     const newMode = themeMode === "light" ? "dark" : "light";
     setThemeMode(newMode);
+    localStorage.setItem("darkMode", newMode);
   };
 
   const contextValue: themeContextType = {
