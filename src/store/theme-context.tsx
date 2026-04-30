@@ -14,7 +14,7 @@ const ThemeContextProvider: React.FC<PropsWithChildren> = (props) => {
   const [themeMode, setThemeMode] = useState<string>("light");
 
   useEffect(() => {
-    const savedMode = localStorage.getItem("darkMode");
+    const savedMode = localStorage.getItem("themeMode");
     if (savedMode !== null) {
       setThemeMode(savedMode);
     }
@@ -23,7 +23,7 @@ const ThemeContextProvider: React.FC<PropsWithChildren> = (props) => {
   const toggleThemeModeHandler = () => {
     const newMode = themeMode === "light" ? "dark" : "light";
     setThemeMode(newMode);
-    localStorage.setItem("darkMode", newMode);
+    localStorage.setItem("themeMode", newMode);
   };
 
   const contextValue: themeContextType = {
