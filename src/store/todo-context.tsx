@@ -5,7 +5,7 @@ type TodoContextType = {
   items: Todo[];
   addTodo: (todoText: string) => void;
   removeTodo: (id: string) => void;
-  toggleIsCompleted: (id: string, isChecked: boolean) => void;
+  toggleIsCompleted: (id: string, isCompleted: boolean) => void;
   clearCompleted: () => void;
 };
 
@@ -13,7 +13,7 @@ export const TodoContext = React.createContext<TodoContextType>({
   items: [],
   addTodo: (todoText: string) => {},
   removeTodo: (id: string) => {},
-  toggleIsCompleted: (id: string, isChecked: boolean) => {},
+  toggleIsCompleted: (id: string, isCompleted: boolean) => {},
   clearCompleted: () => {},
 });
 
@@ -27,51 +27,41 @@ const TodoContextProvider: React.FC<PropsWithChildren> = (props) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (todoItems.length > 0) {
+      localStorage.setItem("todoLists", JSON.stringify(todoItems));
+    } else {
+      localStorage.removeItem("todoLists");
+    }
+  }, [todoItems]);
+
   const addTodoHandler = (todoText: string) => {
     const newTodo = new Todo(todoText);
-    setTodoItems((prevState) => prevState.concat(newTodo));
-    localStorage.setItem("todoLists", JSON.stringify(todoItems));
+
+    setTodoItems((prevTodos) => [...prevTodos, newTodo]);
   };
 
   const removeTodoHandler = (id: string) => {
-    setTodoItems((prevState) => {
-      const newTodoItems = prevState.filter((item) => item.id !== id);
-      if (newTodoItems.length > 0) {
-        localStorage.setItem("todoLists", JSON.stringify(newTodoItems));
-      } else {
-        localStorage.removeItem("todoLists");
-      }
-      return newTodoItems;
-    });
+    setTodoItems((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
-  const isCompletedChangeHandler = (id: string, isChecked: boolean) => {
-    setTodoItems((prevState) => {
-      const indexOfItem = prevState.findIndex((item) => item.id === id);
-      const newItems = prevState;
-      newItems[indexOfItem].isCompleted = isChecked;
-      localStorage.setItem("todoLists", JSON.stringify(newItems));
-      return newItems;
-    });
+  const toggleTodoCompleted = (id: string, isCompleted: boolean) => {
+    setTodoItems((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, isCompleted } : todo,
+      ),
+    );
   };
 
   const clearCompletedHandler = () => {
-    setTodoItems((prevState) => {
-      const newTodoList = prevState.filter((item) => !item.isCompleted);
-      if (newTodoList.length > 0) {
-        localStorage.setItem("todoLists", JSON.stringify(newTodoList));
-      } else {
-        localStorage.removeItem("todoLists");
-      }
-      return newTodoList;
-    });
+    setTodoItems((prevTodos) => prevTodos.filter((todo) => !todo.isCompleted));
   };
 
   const contextValue: TodoContextType = {
     items: todoItems,
     addTodo: addTodoHandler,
     removeTodo: removeTodoHandler,
-    toggleIsCompleted: isCompletedChangeHandler,
+    toggleIsCompleted: toggleTodoCompleted,
     clearCompleted: clearCompletedHandler,
   };
 
