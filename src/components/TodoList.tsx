@@ -5,7 +5,7 @@ import classes from "./TodoList.module.css";
 import { TodoContext } from "../store/todo-context";
 import TodoFooter, { FilterType } from "./TodoFooter";
 
-const TodoList = () => {
+const TodoList: React.FC = () => {
   const todoItems = useContext(TodoContext).items;
   const [activeFilter, setActiveFilter] = useState<FilterType>("ALL");
 

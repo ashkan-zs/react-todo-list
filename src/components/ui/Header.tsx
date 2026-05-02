@@ -6,7 +6,7 @@ import classes from "./Header.module.css";
 import nightIcon from "./../../assets/images/icon-moon.svg";
 import dayIcon from "./../../assets/images/icon-sun.svg";
 
-const Header = () => {
+const Header: React.FC = () => {
   const themeCtx = useContext(ThemeContext);
 
   return (
@@ -15,8 +15,8 @@ const Header = () => {
         <div className={classes.title}>
           <h1>todo</h1>
           <img
-            className={classes.icon}
             src={themeCtx.theme === "light" ? nightIcon : dayIcon}
+            className={classes.icon}
             alt="change night mode icon"
             onClick={themeCtx.toggleThemeMode}
           />

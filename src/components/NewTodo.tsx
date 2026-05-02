@@ -2,15 +2,18 @@ import { useContext, useState } from "react";
 import classes from "./NewTodo.module.css";
 import { TodoContext } from "../store/todo-context";
 
-const NewTodo = () => {
-  const [todoText, setTodoText] = useState("");
+const NewTodo: React.FC = () => {
+  const [todoText, setTodoText] = useState<string>("");
   const todoCtx = useContext(TodoContext);
 
-  const submitHandler = (event: React.FormEvent) => {
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (todoText.trim() === "") return;
-    todoCtx.addTodo(todoText);
+    const trimmedTodoText = todoText.trim();
+
+    if (!trimmedTodoText) return;
+
+    todoCtx.addTodo(trimmedTodoText);
     setTodoText("");
   };
 
@@ -24,8 +27,10 @@ const NewTodo = () => {
         <span className={classes.circle}></span>
         <input
           type="text"
+          aria-label="New Todo"
           placeholder="Create a new todo..."
           value={todoText}
+          maxLength={120}
           onChange={inputChangeHandler}
         />
       </div>
