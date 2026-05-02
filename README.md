@@ -1,51 +1,84 @@
-# Todo App With ReactJs - (Frontend Mentor Project)
+# Todo App
 
-This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+A responsive todo application built with React and TypeScript as a solution to the [Frontend Mentor Todo app challenge](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).
 
-## Table of contents
+The app focuses on clean state management, persistent user preferences, responsive styling, and an accessible task workflow.
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
+## Live Demo
 
-## Overview
+- [Live site](https://react-todo-app-ashkan.netlify.app/)
+- [Frontend Mentor solution](https://www.frontendmentor.io/solutions/todo-app-with-react-js-tH5Wbrk27s)
 
-### The challenge
+## Screenshots
 
-Users should be able to:
+![Todo app light theme](./screenshot-light.png)
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Add new todos to the list
-- Mark todos as complete
-- Delete todos from the list
-- Filter by all/active/complete todos
-- Clear all completed todos
-- Toggle light and dark mode
-<!-- - **Bonus**: Drag and drop to reorder items on the list -->
+![Todo app dark theme](./screenshot-dark.png)
 
-### Screenshot
+## Features
 
-![](./screenshot-light.png)
+- Add new todos
+- Mark todos as complete or active
+- Delete individual todos
+- Filter todos by all, active, or completed
+- Clear completed todos
+- Show the number of active todos left
+- Persist todos in `localStorage`
+- Persist light/dark theme preference in `localStorage`
+- Responsive layout for mobile and desktop screens
+- Hover and active states for interactive elements
 
-### Links
+## Built With
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/todo-app-with-react-js-tH5Wbrk27s)
-- Live Site URL: [Add live site URL here](https://react-todo-app-ashkan.netlify.app/)
+- React
+- TypeScript
+- CSS Modules
+- React Context API
+- `localStorage`
+- Create React App
 
-## My process
+## Getting Started
 
-### Built with
+### Prerequisites
 
-- [React](https://reactjs.org/) - JS library
-- Typescript
-- Modular CSS
-- Flexbox
+- Node.js
+- npm
 
-### What I learned
+### Installation
 
-I use react context and Typescript language in this app and I learn a lot of things about these concepts.
+```bash
+npm install
+```
+
+### Run Locally
+
+```bash
+npm start
+```
+
+The app will run at `http://localhost:3000`.
+
+### Build
+
+```bash
+npm run build
+```
+
+### Type Check
+
+```bash
+npx tsc --noEmit
+```
+
+## What I Practiced
+
+- Managing shared state with React Context
+- Keeping derived UI state in sync with source data
+- Persisting application state after React state updates
+- Typing component props and state with TypeScript
+- Building a responsive layout with CSS Modules
+- Improving UI behavior for empty and filtered todo states
+
+## Notes
+
+This project was built as a portfolio exercise. Create React App is used here because the project started from a CRA setup; for a new production React project, I would consider Vite or a framework such as Next.js depending on the requirements.
