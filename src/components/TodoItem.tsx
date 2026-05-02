@@ -21,7 +21,7 @@ const TodoItem: React.FC<{ text: string; id: string; isChecked: boolean }> = (
         className={classes.checkbox}
         id={`ck-${props.id}`}
         type="checkbox"
-        defaultChecked={props.isChecked}
+        checked={props.isChecked}
         onChange={checkboxChangeHandler}
       />
       <label htmlFor={`ck-${props.id}`} className={classes.taskCheckbox}>

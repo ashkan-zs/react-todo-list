@@ -1,53 +1,52 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import TodoItem from "./TodoItem";
 
 import classes from "./TodoList.module.css";
 import { TodoContext } from "../store/todo-context";
-import TodoFooter from "./TodoFooter";
+import TodoFooter, { FilterType } from "./TodoFooter";
 
 const TodoList = () => {
   const todoItems = useContext(TodoContext).items;
-  const [filteredItems, setFilteredItems] = useState(todoItems);
+  const [activeFilter, setActiveFilter] = useState<FilterType>("ALL");
 
-  useEffect(() => {
-    setFilteredItems(todoItems);
-  }, [todoItems]);
+  const filteredItems = useMemo(() => {
+    if (activeFilter === "ACTIVE") {
+      return todoItems.filter((item) => !item.isCompleted);
+    }
 
-  const filterAllHandler = () => {
-    setFilteredItems(todoItems);
-  };
+    if (activeFilter === "COMPLETED") {
+      return todoItems.filter((item) => item.isCompleted);
+    }
 
-  const filterActiveHandler = () => {
-    const filteredList = todoItems.filter((item) => !item.isCompleted);
-    setFilteredItems(filteredList);
-  };
+    return todoItems;
+  }, [activeFilter, todoItems]);
 
-  const filterCompletedHandler = () => {
-    const filteredList = todoItems.filter((item) => item.isCompleted);
-    setFilteredItems(filteredList);
-  };
+  const activeCount = useMemo(
+    () => todoItems.filter((item) => !item.isCompleted).length,
+    [todoItems],
+  );
 
   return (
-    <>
-      {filteredItems.length > 0 && (
-        <ul className={classes.todoList}>
-          {filteredItems.map((item) => (
-            <TodoItem
-              key={item.id}
-              text={item.text}
-              id={item.id}
-              isChecked={item.isCompleted}
-            />
-          ))}
-          <TodoFooter
-            count={filteredItems.length}
-            onFilterAll={filterAllHandler}
-            onFilterActive={filterActiveHandler}
-            onFilterCompleted={filterCompletedHandler}
-          />
-        </ul>
+    <ul className={classes.todoList}>
+      {filteredItems.map((item) => (
+        <TodoItem
+          key={item.id}
+          text={item.text}
+          id={item.id}
+          isChecked={item.isCompleted}
+        />
+      ))}
+      {filteredItems.length === 0 && (
+        <li className={classes.notfound}>
+          <p>No items found.</p>
+        </li>
       )}
-    </>
+      <TodoFooter
+        count={activeCount}
+        activeFilter={activeFilter}
+        onFilterChange={setActiveFilter}
+      />
+    </ul>
   );
 };
 
